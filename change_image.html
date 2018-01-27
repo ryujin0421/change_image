@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>change_image</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <a href="#">
+        <img src="img/image_off.png" alt="hoge" border="0" />
+    </a>
+
+    <script type="text/javascript">
+        $(function () {
+            $('a img').hover(function () {
+                    $(this).attr('src', $(this).attr('src').replace('_off', '_on'));
+                },
+                function () {
+                    if (!$(this).hasClass('current')) {
+                        $(this).attr('src', $(this).attr('src').replace('_on', '_off'));
+                    }
+                
+                });
+        });
+    </script>
+</body>
+
+</html>

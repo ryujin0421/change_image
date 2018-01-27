@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sample</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!--<script type="text/javascript">
+        
+    $(function(){
+    $('a img').hover(function(){
+    $(this).attr('src',$(this).attr('src').replace('_off','_on'));
+    },
+                     
+    function(){
+    $(this).attr('src', $(this).attr('src').replace('_on', '_off'));
+    })
+    });
+    </script>-->
+    <script type="text/javascript">
+        
+    $(function(){
+  $('.sample').find('img').each(
+function(){
+var onImage = $(this).attr('src').replace('_off', '_on');
+this.onHtml = $('<img src="' + onImage + '" style="position:absolute; opacity:0;" />');
+$(this).before(this.onHtml);
+
+$(this.onHtml).hover(
+function(){
+$(this).stop().animate({'opacity': '1'}, 400);
+},
+function(){
+$(this).stop().animate({'opacity': '0'}, 400);
+});
+});
+});
+
+    </script>
+</head>
+<body>
+   <a href="#" class="sample">
+        <img src="img/image_off.png" alt="">
+    </a>
+    
+</body>
+</html>
